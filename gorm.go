@@ -38,14 +38,16 @@ func main() {
 	//db.Select("Name", "Age", "CreatedAt").Create(&user)//insert apenas em campos específicos
 
 	var pessoas []Pessoa
-
 	fmt.Println("Buscando...")
-
 	db.Find(&pessoas)
 
 	fmt.Println("Listando...")
-
 	fmt.Println(pessoas)
+	fmt.Println("Filtrando...")
+
+	var p []Pessoa
+	db.Where("email = ?", "fabriciotonettolondero@gmail.com").Find(&p)
+	fmt.Println(p)
 
 	/*
 
